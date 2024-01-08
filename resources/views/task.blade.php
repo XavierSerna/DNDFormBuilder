@@ -1,4 +1,3 @@
-<div>
 <ul wire:sortable="updateTaskOrder">
     @foreach ($tasks as $task)
         <li wire:sortable.item="{{ $task->id }}" wire:key="task-{{ $task->id }}">
@@ -7,4 +6,3 @@
         </li>
     @endforeach
 </ul>
-</div>
