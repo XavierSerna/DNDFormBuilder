@@ -12,6 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('form_fields', function (Blueprint $table) {
+            $table->id();
+            $table->string('type');
+            $table->timestamps();
+        });
+    }
+
+/*     public function up(): void
+    {
+        Schema::create('form_fields', function (Blueprint $table) {
             $table->id(); // Unique identifier for each form field
             $table->unsignedBigInteger('form_id'); // Foreign key to the form
             $table->string('type'); // Type of the form field (e.g., Text, Checkbox)
@@ -25,7 +34,7 @@ return new class extends Migration
             // Foreign key constraints
             $table->foreign('form_id')->references('id')->on('forms');
         });
-    }
+    } */
 
     /**
      * Reverse the migrations.
