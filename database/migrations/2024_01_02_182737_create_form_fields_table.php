@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('form_fields', function (Blueprint $table) {
             $table->id();
             $table->string('type');
+            $table->integer('order')->default(0);
             $table->timestamps();
         });
     }

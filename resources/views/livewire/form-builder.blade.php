@@ -13,15 +13,18 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>Order</th>
             <th>Type</th>
             <th>Created</th>
             <th>Updated</th>
+            <th></th>
         </tr>
     </thead>
-    <tbody>
-        @foreach ($this->formFields as $formField)
-            <tr>
-                <td>{{ $formField->id }}</td>
+    <tbody wire:sortable="updateFieldOrder">
+        @foreach ($this->formFields as $formField) <!-- add $index => ?-->
+            <tr wire:sortable.item="{{ $formField->id }}" wire:key="form-field-{{ $formField->id }}">
+                <td wire:sortable.handle>{{ $formField->id }}</td>
+                <td>{{ $formField->order }}</td>
                 <td>{{ $formField->type }}</td>
                 <td>{{ $formField->created_at }}</td>
                 <td>{{ $formField->updated_at }}</td>

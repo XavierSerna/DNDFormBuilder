@@ -17,22 +17,17 @@
   <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
   <script>
     function startDrag(event, type) {
-      console.log("arrastrando un elemento: ", type);
       event.dataTransfer.setData("text", type);
-      //event.dataTransfer.setData("type", type); //["type"] is the key, and [type] the value.
     }
 
     function allowDrop(event) {
-      console.log("Elemento arrastrado sobre el área de destino");
       event.preventDefault();
     }
 
     function drop(event) {
       event.preventDefault();
       var type = event.dataTransfer.getData("text");
-      //var type = event.dataTransfer.getData("type"); // Retrieves the data set on the key ["type"] during drag
-      console.log("Elemento soltado de tipo:", type);
-      Livewire.dispatch('elementoArrastrado', { tipo: type});
+      Livewire.dispatch('itemDropped', { type: type});
     }
   </script>
 </body>
